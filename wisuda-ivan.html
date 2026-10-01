@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Selamat Wisuda - Ivan Fadhillah Syakieb</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0a0a2e 0%, #1a1a5e 40%, #2d1b69 70%, #0a0a2e 100%);
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    /* Stars background */
+    .stars {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .star {
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle linear infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.4); }
+    }
+
+    /* Canvas for confetti */
+    #confettiCanvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    /* Main card */
+    .card-wrapper {
+      position: relative;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      min-height: 100vh;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 215, 0, 0.3);
+      border-radius: 24px;
+      padding: 50px 60px;
+      max-width: 720px;
+      width: 100%;
+      text-align: center;
+      box-shadow:
+        0 0 60px rgba(255, 215, 0, 0.1),
+        0 0 120px rgba(255, 165, 0, 0.05),
+        inset 0 0 60px rgba(255, 255, 255, 0.02);
+      animation: cardFloat 6s ease-in-out infinite;
+    }
+
+    @keyframes cardFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* Gold decorative line */
+    .gold-line {
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #FFD700, transparent);
+      margin: 0 auto 20px;
+      border-radius: 2px;
+    }
+
+    /* Toga emoji large */
+    .toga-icon {
+      font-size: 72px;
+      display: block;
+      margin-bottom: 10px;
+      animation: togaSpin 3s ease-in-out infinite;
+      filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
+    }
+
+    @keyframes togaSpin {
+      0%, 100% { transform: rotate(-5deg) scale(1); }
+      25% { transform: rotate(5deg) scale(1.05); }
+      50% { transform: rotate(-3deg) scale(1.1); }
+      75% { transform: rotate(3deg) scale(1.05); }
+    }
+
+    /* Title selamat wisuda */
+    .selamat-label {
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: #FFD700;
+      margin-bottom: 8px;
+      opacity: 0.9;
+    }
+
+    .main-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(38px, 6vw, 56px);
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.1;
+      text-shadow:
+        0 0 30px rgba(255, 215, 0, 0.5),
+        0 0 60px rgba(255, 215, 0, 0.2);
+      margin-bottom: 6px;
+      animation: glowPulse 3s ease-in-out infinite;
+    }
+
+    @keyframes glowPulse {
+      0%, 100% { text-shadow: 0 0 30px rgba(255,215,0,0.5), 0 0 60px rgba(255,215,0,0.2); }
+      50% { text-shadow: 0 0 50px rgba(255,215,0,0.8), 0 0 100px rgba(255,215,0,0.4); }
+    }
+
+    .main-title span {
+      font-style: italic;
+      color: #FFD700;
+    }
+
+    .gold-line-center {
+      width: 120px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #FFD700, #FFF, #FFD700, transparent);
+      margin: 18px auto;
+    }
+
+    /* Name */
+    .name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 5vw, 46px);
+      font-weight: 700;
+      color: #FFD700;
+      text-shadow:
+        0 0 20px rgba(255, 215, 0, 0.7),
+        2px 2px 0px rgba(0,0,0,0.3);
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+
+    .degree {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(18px, 3vw, 24px);
+      color: #fff;
+      font-weight: 400;
+      letter-spacing: 2px;
+      margin-bottom: 6px;
+      opacity: 0.9;
+    }
+
+    .cert-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #FFD700, #FFA500);
+      color: #1a0a00;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      padding: 5px 16px;
+      border-radius: 20px;
+      margin-bottom: 22px;
+      box-shadow: 0 0 20px rgba(255, 165, 0, 0.5);
+    }
+
+    .gold-line-center2 {
+      width: 200px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,215,0,0.5), transparent);
+      margin: 0 auto 22px;
+    }
+
+    /* University */
+    .university-label {
+      font-size: 11px;
+      letter-spacing: 5px;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .university {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(18px, 3vw, 22px);
+      color: #ffffff;
+      font-weight: 700;
+      margin-bottom: 30px;
+      letter-spacing: 1px;
+    }
+
+    .university span {
+      color: #FFD700;
+    }
+
+    /* Message */
+    .message-box {
+      background: rgba(255, 215, 0, 0.05);
+      border: 1px solid rgba(255, 215, 0, 0.15);
+      border-radius: 14px;
+      padding: 24px 28px;
+      margin-bottom: 28px;
+    }
+
+    .message {
+      font-size: 15px;
+      line-height: 1.9;
+      color: rgba(255, 255, 255, 0.85);
+      font-weight: 300;
+    }
+
+    .message strong {
+      color: #FFD700;
+      font-weight: 600;
+    }
+
+    /* Quote */
+    .quote {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 16px;
+      color: rgba(255, 215, 0, 0.8);
+      border-left: 3px solid rgba(255, 215, 0, 0.5);
+      padding-left: 16px;
+      margin: 0 auto 28px;
+      text-align: left;
+      max-width: 500px;
+      line-height: 1.7;
+    }
+
+    /* Emoji row */
+    .emoji-row {
+      font-size: 28px;
+      margin-bottom: 26px;
+      letter-spacing: 8px;
+      animation: emojiDance 2s ease-in-out infinite;
+    }
+
+    @keyframes emojiDance {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+
+    /* Footer */
+    .footer-label {
+      font-size: 11px;
+      letter-spacing: 4px;
+      color: rgba(255, 255, 255, 0.3);
+      text-transform: uppercase;
+    }
+
+    /* Button */
+    .btn-confetti {
+      display: inline-block;
+      margin-top: 24px;
+      padding: 12px 32px;
+      background: linear-gradient(135deg, #FFD700, #FFA500);
+      color: #1a0a00;
+      border: none;
+      border-radius: 50px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      cursor: pointer;
+      text-transform: uppercase;
+      box-shadow: 0 4px 25px rgba(255, 165, 0, 0.5);
+      transition: all 0.3s ease;
+    }
+
+    .btn-confetti:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 8px 35px rgba(255, 165, 0, 0.7);
+    }
+
+    .btn-confetti:active {
+      transform: scale(0.97);
+    }
+
+    /* Responsive */
+    @media (max-width: 580px) {
+      .card {
+        padding: 36px 24px;
+      }
+      .emoji-row { letter-spacing: 4px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Starfield -->
+  <div class="stars" id="stars"></div>
+
+  <!-- Confetti Canvas -->
+  <canvas id="confettiCanvas"></canvas>
+
+  <!-- Card -->
+  <div class="card-wrapper">
+    <div class="card">
+
+      <div class="selamat-label">✨ Selamat &amp; Bahagia ✨</div>
+
+      <span class="toga-icon">🎓</span>
+
+      <h1 class="main-title"><span>Wisuda</span> Sarjana</h1>
+
+      <div class="gold-line-center"></div>
+
+      <div class="name">Ivan Fadhillah Syakieb</div>
+
+      <div class="degree">S.M., CTT</div>
+
+      <div class="cert-badge">Sarjana Manajemen · Certified</div>
+
+      <div class="gold-line-center2"></div>
+
+      <div class="university-label">Program Studi Sarjana (S1)</div>
+      <div class="university">
+        <span>Universitas Negeri</span> Jakarta
+      </div>
+
+      <div class="message-box">
+        <p class="message">
+          Selamat atas pencapaian luar biasa ini, <strong>Ivan!</strong><br/>
+          Perjuangan panjang kini berbuah manis. Gelar <strong>S.M.</strong> dan sertifikasi <strong>CTT</strong>
+          yang kamu raih adalah bukti nyata kerja keras, dedikasi, dan semangat pantang menyerah.
+          Kini langkah baru yang lebih besar menantimu di luar sana. 🌟
+        </p>
+      </div>
+
+      <blockquote class="quote">
+        "Pendidikan adalah senjata paling ampuh yang dapat kamu gunakan untuk mengubah dunia."
+        <br/><small>— Nelson Mandela</small>
+      </blockquote>
+
+      <div class="emoji-row">🎊 🎉 🏅 🎊 🎉</div>
+
+      <div class="gold-line"></div>
+
+      <div class="footer-label">Universitas Negeri Jakarta · 2026</div>
+
+      <button class="btn-confetti" onclick="burstConfetti()">🎊 Rayakan Lagi!</button>
+
+    </div>
+  </div>
+
+  <script>
+    // ─── Starfield ─────────────────────────────────────────────────────────────
+    const starsContainer = document.getElementById('stars');
+    for (let i = 0; i < 120; i++) {
+      const star = document.createElement('div');
+      star.classList.add('star');
+      const size = Math.random() * 2.5 + 0.5;
+      star.style.cssText = `
+        width: ${size}px; height: ${size}px;
+        top: ${Math.random() * 100}%;
+        left: ${Math.random() * 100}%;
+        animation-duration: ${Math.random() * 3 + 2}s;
+        animation-delay: ${Math.random() * 4}s;
+      `;
+      starsContainer.appendChild(star);
+    }
+
+    // ─── Confetti (toga + classic shapes) ──────────────────────────────────────
+    const canvas = document.getElementById('confettiCanvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    let animId;
+
+    function resizeCanvas() {
+      canvas.width  = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    const COLORS = [
+      '#FFD700','#FFA500','#FF6B6B','#4ECDC4',
+      '#45B7D1','#96CEB4','#FFEAA7','#DDA0DD',
+      '#98FB98','#F0E68C','#87CEEB','#FF69B4'
+    ];
+
+    const TOGA_EMOJIS = ['🎓','🎊','🎉','⭐','🌟','✨','🏅'];
+
+    class Particle {
+      constructor(burst = false) {
+        this.reset(burst);
+      }
+
+      reset(burst = false) {
+        this.isEmoji = Math.random() < 0.30;
+
+        if (burst) {
+          this.x = canvas.width  / 2 + (Math.random() - 0.5) * 200;
+          this.y = canvas.height / 2 + (Math.random() - 0.5) * 200;
+          this.vx = (Math.random() - 0.5) * 14;
+          this.vy = (Math.random() - 0.7) * 16;
+        } else {
+          this.x  = Math.random() * canvas.width;
+          this.y  = -20;
+          this.vx = (Math.random() - 0.5) * 3;
+          this.vy = Math.random() * 3 + 1.5;
+        }
+
+        this.size   = Math.random() * 10 + 6;
+        this.color  = COLORS[Math.floor(Math.random() * COLORS.length)];
+        this.emoji  = TOGA_EMOJIS[Math.floor(Math.random() * TOGA_EMOJIS.length)];
+        this.angle  = Math.random() * 360;
+        this.spin   = (Math.random() - 0.5) * 8;
+        this.wobble = Math.random() * 3;
+        this.wobbleSpeed = Math.random() * 0.05 + 0.02;
+        this.wobbleT = 0;
+        this.alpha  = 1;
+        this.shape  = ['rect','circle','triangle','star'][Math.floor(Math.random() * 4)];
+      }
+
+      update() {
+        this.wobbleT += this.wobbleSpeed;
+        this.x  += this.vx + Math.sin(this.wobbleT) * this.wobble;
+        this.y  += this.vy;
+        this.vy += 0.08; // gravity
+        this.vx *= 0.995;
+        this.angle += this.spin;
+
+        if (this.y > canvas.height + 40) this.alpha -= 0.05;
+        if (this.y > canvas.height + 80) this.reset();
+        if (this.x < -50 || this.x > canvas.width + 50) this.reset();
+      }
+
+      draw() {
+        ctx.save();
+        ctx.globalAlpha = Math.max(0, this.alpha);
+        ctx.translate(this.x, this.y);
+        ctx.rotate((this.angle * Math.PI) / 180);
+
+        if (this.isEmoji) {
+          ctx.font = `${this.size * 2}px serif`;
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.fillText(this.emoji, 0, 0);
+        } else {
+          ctx.fillStyle = this.color;
+          ctx.shadowColor = this.color;
+          ctx.shadowBlur = 4;
+          switch (this.shape) {
+            case 'rect':
+              ctx.fillRect(-this.size / 2, -this.size / 4, this.size, this.size / 2);
+              break;
+            case 'circle':
+              ctx.beginPath();
+              ctx.arc(0, 0, this.size / 2, 0, Math.PI * 2);
+              ctx.fill();
+              break;
+            case 'triangle':
+              ctx.beginPath();
+              ctx.moveTo(0, -this.size / 2);
+              ctx.lineTo(this.size / 2, this.size / 2);
+              ctx.lineTo(-this.size / 2, this.size / 2);
+              ctx.closePath();
+              ctx.fill();
+              break;
+            case 'star':
+              drawStar(ctx, 0, 0, 5, this.size / 2, this.size / 4);
+              ctx.fill();
+              break;
+          }
+        }
+        ctx.restore();
+      }
+    }
+
+    function drawStar(ctx, cx, cy, spikes, outerR, innerR) {
+      let rot = (Math.PI / 2) * 3;
+      const step = Math.PI / spikes;
+      ctx.beginPath();
+      ctx.moveTo(cx, cy - outerR);
+      for (let i = 0; i < spikes; i++) {
+        ctx.lineTo(cx + Math.cos(rot) * outerR, cy + Math.sin(rot) * outerR);
+        rot += step;
+        ctx.lineTo(cx + Math.cos(rot) * innerR, cy + Math.sin(rot) * innerR);
+        rot += step;
+      }
+      ctx.lineTo(cx, cy - outerR);
+      ctx.closePath();
+    }
+
+    function initParticles(count = 120) {
+      particles = [];
+      for (let i = 0; i < count; i++) {
+        const p = new Particle();
+        // stagger starting positions vertically
+        p.y = Math.random() * canvas.height;
+        particles.push(p);
+      }
+    }
+
+    function burstConfetti() {
+      // Add a big burst from center
+      for (let i = 0; i < 80; i++) {
+        particles.push(new Particle(true));
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => { p.update(); p.draw(); });
+      // Remove dead particles (alpha <= 0)
+      particles = particles.filter(p => p.alpha > 0);
+      // Replenish falling confetti
+      while (particles.length < 120) particles.push(new Particle());
+      animId = requestAnimationFrame(animate);
+    }
+
+    // Start
+    initParticles(120);
+    animate();
+
+    // Initial burst after short delay
+    setTimeout(() => burstConfetti(), 600);
+    setTimeout(() => burstConfetti(), 1400);
+  </script>
+</body>
+</html>
