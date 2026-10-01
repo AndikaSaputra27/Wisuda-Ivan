@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta property="og:title" content="🎓 Selamat Wisuda Ivan Fadhillah Syakieb, S.M., CTT"/>
+  <meta property="og:description" content="Selamat telah menyelesaikan Program S1 di Universitas Negeri Jakarta! 🎉"/>
+  <meta property="og:type" content="website"/>
+  <title>🎓 Selamat Wisuda Ivan Fadhillah Syakieb, S.M., CTT – UNJ 2026</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+    :root {
+      --gold:   #FFD700;
+      --gold2:  #FFA500;
+      --dark:   #06061a;
+      --card-bg: rgba(255,255,255,0.04);
+      --glass:   rgba(255,255,255,0.07);
+    }
+
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--dark);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* ── LOADING SCREEN ─────────────────────────────────────────────────── */
+    #loading {
+      position: fixed; inset: 0;
+      background: var(--dark);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.8s ease, visibility 0.8s ease;
+    }
+    #loading.hidden { opacity: 0; visibility: hidden; }
+
+    .loading-toga {
+      font-size: 80px;
+      animation: loadToga 1.2s ease-in-out infinite alternate;
+      filter: drop-shadow(0 0 30px var(--gold));
+    }
+    @keyframes loadToga {
+      from { transform: translateY(0) rotate(-8deg) scale(1); }
+      to   { transform: translateY(-20px) rotate(8deg) scale(1.1); }
+    }
+    .loading-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      color: var(--gold);
+      margin-top: 20px;
+      letter-spacing: 3px;
+      animation: loadFade 1.5s ease-in-out infinite alternate;
+    }
+    @keyframes loadFade { from { opacity: 0.4; } to { opacity: 1; } }
+    .loading-bar-wrap {
+      width: 200px; height: 3px;
+      background: rgba(255,215,0,0.15);
+      border-radius: 3px;
+      margin-top: 18px;
+      overflow: hidden;
+    }
+    .loading-bar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--gold), var(--gold2));
+      border-radius: 3px;
+      animation: loadBar 2s ease-in-out forwards;
+    }
+    @keyframes loadBar { from { width: 0; } to { width: 100%; } }
+
+    /* ── BACKGROUND ─────────────────────────────────────────────────────── */
+    .bg-layer {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background:
+        radial-gradient(ellipse 80% 60% at 20% 0%,   rgba(50,20,120,0.7) 0%, transparent 60%),
+        radial-gradient(ellipse 70% 50% at 80% 100%,  rgba(80,40,10,0.6) 0%, transparent 60%),
+        linear-gradient(160deg, #06061a 0%, #0f0f35 50%, #1a0f06 100%);
+    }
+
+    /* Stars */
+    #stars { position: fixed; inset: 0; z-index: 1; pointer-events: none; }
+    .star {
+      position: absolute; background: #fff; border-radius: 50%;
+      animation: twinkle linear infinite;
+    }
+    @keyframes twinkle {
+      0%,100% { opacity:.15; transform:scale(1); }
+      50%      { opacity:1;   transform:scale(1.5); }
+    }
+
+    /* Confetti */
+    #confettiCanvas {
+      position: fixed; inset: 0;
+      width: 100%; height: 100%;
+      pointer-events: none; z-index: 100;
+    }
+
+    /* ── PAGE LAYOUT ────────────────────────────────────────────────────── */
+    .page { position: relative; z-index: 5; }
+
+    /* ── HERO SECTION ───────────────────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      padding: 40px 20px 60px;
+    }
+
+    .hero-tag {
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 7px; text-transform: uppercase;
+      color: var(--gold); opacity: .8;
+      margin-bottom: 10px;
+    }
+
+    .toga-bounce {
+      font-size: 90px;
+      display: inline-block;
+      animation: togaBounce 2.5s ease-in-out infinite;
+      filter: drop-shadow(0 0 24px var(--gold));
+      margin-bottom: 8px;
+    }
+    @keyframes togaBounce {
+      0%,100% { transform: translateY(0) rotate(-6deg) scale(1); }
+      30%      { transform: translateY(-18px) rotate(4deg) scale(1.08); }
+      60%      { transform: translateY(-8px)  rotate(-3deg) scale(1.04); }
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(42px, 8vw, 82px);
+      font-weight: 700; line-height: 1;
+      animation: glowPulse 3s ease-in-out infinite;
+    }
+    .hero-title .word1 { color: #fff; }
+    .hero-title .word2 { color: var(--gold); font-style: italic; }
+
+    @keyframes glowPulse {
+      0%,100% { text-shadow: 0 0 40px rgba(255,215,0,.4); }
+      50%      { text-shadow: 0 0 80px rgba(255,215,0,.8), 0 0 140px rgba(255,165,0,.3); }
+    }
+
+    .divider-gold {
+      width: 140px; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), #fff, var(--gold), transparent);
+      margin: 20px auto;
+      border-radius: 2px;
+    }
+
+    /* Avatar ring */
+    .avatar-wrap {
+      position: relative;
+      display: inline-block;
+      margin: 6px auto 16px;
+    }
+    .avatar-ring {
+      width: 160px; height: 160px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--gold2), #fff, var(--gold));
+      padding: 4px;
+      animation: ringRotate 8s linear infinite;
+      box-shadow: 0 0 40px rgba(255,215,0,.4), 0 0 80px rgba(255,165,0,.2);
+    }
+    @keyframes ringRotate { to { filter: hue-rotate(30deg) brightness(1.1); } }
+    .avatar-inner {
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1a1040, #2d1b69);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 72px;
+      overflow: hidden;
+    }
+
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 6vw, 52px);
+      font-weight: 700;
+      color: var(--gold);
+      text-shadow: 0 0 30px rgba(255,215,0,.5), 2px 2px 0 rgba(0,0,0,.4);
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .badge-row {
+      display: flex; flex-wrap: wrap;
+      gap: 10px; justify-content: center;
+      margin-bottom: 16px;
+    }
+    .badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 18px; border-radius: 30px;
+      font-size: 12px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+    .badge-gold {
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      color: #1a0a00;
+      box-shadow: 0 0 20px rgba(255,165,0,.5);
+    }
+    .badge-glass {
+      background: var(--glass);
+      border: 1px solid rgba(255,215,0,.25);
+      color: rgba(255,255,255,.85);
+    }
+
+    .hero-univ {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(16px, 3vw, 22px);
+      color: rgba(255,255,255,.9);
+      margin-bottom: 4px;
+    }
+    .hero-univ span { color: var(--gold); }
+
+    .hero-year {
+      font-size: 13px; letter-spacing: 4px;
+      color: rgba(255,255,255,.4); margin-bottom: 36px;
+      text-transform: uppercase;
+    }
+
+    .hero-btns { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+
+    .btn {
+      padding: 13px 32px; border-radius: 50px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      border: none; cursor: pointer;
+      transition: transform .25s, box-shadow .25s;
+    }
+    .btn:hover  { transform: translateY(-3px) scale(1.03); }
+    .btn:active { transform: scale(.97); }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      color: #1a0a00;
+      box-shadow: 0 4px 25px rgba(255,165,0,.45);
+    }
+    .btn-primary:hover { box-shadow: 0 8px 35px rgba(255,165,0,.7); }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid rgba(255,215,0,.5);
+      color: var(--gold);
+    }
+    .btn-outline:hover { background: rgba(255,215,0,.08); border-color: var(--gold); }
+
+    /* Scroll hint */
+    .scroll-hint {
+      position: absolute; bottom: 30px; left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      opacity: .5; animation: scrollBounce 2s ease-in-out infinite;
+    }
+    @keyframes scrollBounce {
+      0%,100% { transform: translateX(-50%) translateY(0); }
+      50%      { transform: translateX(-50%) translateY(8px); }
+    }
+    .scroll-hint span { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; }
+    .scroll-arrow { font-size: 20px; }
+
+    /* ── SECTION BASE ───────────────────────────────────────────────────── */
+    section { padding: 80px 20px; }
+    .section-inner { max-width: 860px; margin: 0 auto; }
+
+    .section-tag {
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 6px; text-transform: uppercase;
+      color: var(--gold); opacity: .7;
+      text-align: center; margin-bottom: 6px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 5vw, 44px);
+      font-weight: 700; text-align: center;
+      color: #fff; margin-bottom: 8px;
+    }
+    .section-title span { color: var(--gold); font-style: italic; }
+    .section-sub {
+      text-align: center;
+      color: rgba(255,255,255,.55);
+      font-size: 15px; line-height: 1.7;
+      max-width: 560px; margin: 0 auto 48px;
+    }
+
+    /* ── UCAPAN UTAMA ───────────────────────────────────────────────────── */
+    #ucapan { background: rgba(255,215,0,.02); }
+
+    .ucapan-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,215,0,.2);
+      border-radius: 20px;
+      padding: 40px 44px;
+      text-align: center;
+      box-shadow: 0 0 60px rgba(255,215,0,.06);
+      animation: cardFloat 7s ease-in-out infinite;
+    }
+    @keyframes cardFloat {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-8px); }
+    }
+
+    .quote-mark { font-size: 60px; color: var(--gold); opacity:.3; line-height:.8; }
+
+    .ucapan-text {
+      font-size: clamp(15px, 2.5vw, 18px);
+      line-height: 2; color: rgba(255,255,255,.88);
+      font-weight: 300;
+    }
+    .ucapan-text strong { color: var(--gold); font-weight: 600; }
+
+    .divider-thin {
+      width: 80px; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,215,0,.4), transparent);
+      margin: 28px auto;
+    }
+
+    .inspirasi {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(15px, 2vw, 17px);
+      color: rgba(255,215,0,.75);
+      border-left: 3px solid rgba(255,215,0,.4);
+      padding: 10px 20px;
+      text-align: left;
+      border-radius: 0 8px 8px 0;
+      line-height: 1.8;
+      margin: 0 auto;
+      max-width: 540px;
+    }
+    .inspirasi small { display: block; margin-top: 4px; color: rgba(255,255,255,.4); font-style: normal; font-size: 12px; }
+
+    /* ── PENCAPAIAN ─────────────────────────────────────────────────────── */
+    #pencapaian { }
+
+    .achieve-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .achieve-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,215,0,.15);
+      border-radius: 16px;
+      padding: 30px 20px;
+      text-align: center;
+      transition: transform .3s, box-shadow .3s;
+    }
+    .achieve-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(255,215,0,.12);
+    }
+    .achieve-icon { font-size: 42px; margin-bottom: 12px; }
+    .achieve-label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,.45); margin-bottom: 4px; }
+    .achieve-value { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--gold); font-weight: 700; }
+    .achieve-desc  { font-size: 12px; color: rgba(255,255,255,.5); margin-top: 4px; line-height: 1.5; }
+
+    /* ── TIMELINE ───────────────────────────────────────────────────────── */
+    #timeline { background: rgba(255,215,0,.015); }
+
+    .timeline { position: relative; padding-left: 32px; }
+    .timeline::before {
+      content: '';
+      position: absolute; left: 10px; top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, var(--gold), rgba(255,215,0,.1));
+    }
+
+    .tl-item {
+      position: relative; margin-bottom: 36px;
+      opacity: 0; transform: translateX(-20px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .tl-item.visible { opacity: 1; transform: none; }
+    .tl-dot {
+      position: absolute; left: -26px; top: 6px;
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 12px var(--gold);
+      border: 2px solid var(--dark);
+    }
+    .tl-year { font-size: 11px; color: var(--gold); font-weight: 600; letter-spacing: 2px; margin-bottom: 2px; }
+    .tl-title { font-family: 'Playfair Display', serif; font-size: 18px; color: #fff; font-weight: 700; margin-bottom: 4px; }
+    .tl-desc  { font-size: 14px; color: rgba(255,255,255,.55); line-height: 1.7; }
+
+    /* ── UCAPAN DARI SAHABAT ────────────────────────────────────────────── */
+    #sahabat { }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .friend-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 16px;
+      padding: 26px 22px;
+      transition: transform .3s, border-color .3s;
+      opacity: 0; transform: translateY(20px);
+      transition: opacity .5s ease, transform .5s ease, box-shadow .3s;
+    }
+    .friend-card.visible {
+      opacity: 1; transform: none;
+    }
+    .friend-card:hover {
+      border-color: rgba(255,215,0,.3);
+      box-shadow: 0 8px 32px rgba(255,215,0,.08);
+      transform: translateY(-4px);
+    }
+    .friend-avatar {
+      font-size: 36px; margin-bottom: 10px;
+    }
+    .friend-name {
+      font-weight: 700; font-size: 15px; color: #fff; margin-bottom: 2px;
+    }
+    .friend-role {
+      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--gold); opacity: .7; margin-bottom: 12px;
+    }
+    .friend-msg {
+      font-size: 13.5px; color: rgba(255,255,255,.65); line-height: 1.75;
+      font-style: italic;
+    }
+
+    /* ── GALERI FOTO ────────────────────────────────────────────────────── */
+    #galeri { background: rgba(255,215,0,.015); }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    @media (max-width: 600px) { .gallery-grid { grid-template-columns: repeat(2,1fr); } }
+
+    .gallery-item {
+      aspect-ratio: 1;
+      border-radius: 14px;
+      background: var(--glass);
+      border: 1px solid rgba(255,215,0,.12);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 8px;
+      font-size: 40px;
+      cursor: pointer;
+      transition: transform .3s, box-shadow .3s;
+      overflow: hidden;
+      position: relative;
+    }
+    .gallery-item:hover {
+      transform: scale(1.04);
+      box-shadow: 0 8px 30px rgba(255,215,0,.15);
+    }
+    .gallery-item span { font-size: 11px; color: rgba(255,255,255,.4); letter-spacing: 1px; }
+    .gallery-item.featured { grid-column: span 2; aspect-ratio: 2; }
+
+    /* ── PENUTUP / FOOTER ───────────────────────────────────────────────── */
+    #footer {
+      text-align: center;
+      padding: 80px 20px 60px;
+      position: relative;
+    }
+
+    .footer-toga { font-size: 54px; animation: togaBounce 3s ease-in-out infinite; margin-bottom: 10px; }
+
+    .footer-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(20px, 4vw, 32px);
+      color: var(--gold); font-weight: 700; margin-bottom: 4px;
+    }
+    .footer-degree { font-size: 16px; color: rgba(255,255,255,.7); margin-bottom: 16px; }
+
+    .emoji-row {
+      font-size: 28px; letter-spacing: 10px;
+      margin-bottom: 24px;
+      animation: emojiBounce 2.5s ease-in-out infinite;
+    }
+    @keyframes emojiBounce {
+      0%,100% { transform: scale(1); }
+      50%      { transform: scale(1.06); }
+    }
+
+    .footer-divider {
+      width: 100%; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,215,0,.2), transparent);
+      margin: 24px auto;
+      max-width: 500px;
+    }
+    .footer-copy { font-size: 11px; letter-spacing: 3px; color: rgba(255,255,255,.2); text-transform: uppercase; }
+
+    /* ── NAV DOT ────────────────────────────────────────────────────────── */
+    .nav-dots {
+      position: fixed; right: 20px; top: 50%;
+      transform: translateY(-50%);
+      display: flex; flex-direction: column; gap: 10px;
+      z-index: 200;
+    }
+    .nav-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(255,215,0,.25);
+      cursor: pointer;
+      transition: background .3s, transform .3s;
+    }
+    .nav-dot.active { background: var(--gold); transform: scale(1.4); }
+
+    /* ── FLOATING TOGAS ─────────────────────────────────────────────────── */
+    .float-toga {
+      position: fixed; pointer-events: none; z-index: 2;
+      font-size: 28px; opacity: .12;
+      animation: floatUp linear infinite;
+    }
+    @keyframes floatUp {
+      0%   { transform: translateY(100vh) rotate(0deg); opacity: .12; }
+      100% { transform: translateY(-120px) rotate(360deg); opacity: 0; }
+    }
+
+    /* ── FIREWORK BUTTON ────────────────────────────────────────────────── */
+    .firework-btn {
+      position: fixed; bottom: 24px; right: 24px;
+      width: 56px; height: 56px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      color: #1a0a00; font-size: 24px;
+      border: none; cursor: pointer;
+      box-shadow: 0 4px 20px rgba(255,165,0,.5);
+      z-index: 300;
+      transition: transform .2s, box-shadow .2s;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .firework-btn:hover { transform: scale(1.1); box-shadow: 0 6px 30px rgba(255,165,0,.7); }
+    .firework-btn:active { transform: scale(.95); }
+
+    /* ── RESPONSIVE ─────────────────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .ucapan-card { padding: 28px 20px; }
+      .nav-dots { display: none; }
+      .achieve-grid { grid-template-columns: repeat(2,1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Loading Screen -->
+  <div id="loading">
+    <div class="loading-toga">🎓</div>
+    <div class="loading-text">Mempersiapkan Momen Spesial…</div>
+    <div class="loading-bar-wrap"><div class="loading-bar"></div></div>
+  </div>
+
+  <!-- Background -->
+  <div class="bg-layer"></div>
+  <div id="stars"></div>
+
+  <!-- Confetti Canvas -->
+  <canvas id="confettiCanvas"></canvas>
+
+  <!-- Floating Togas -->
+  <div id="floatTogas"></div>
+
+  <!-- Nav Dots -->
+  <nav class="nav-dots" id="navDots">
+    <div class="nav-dot active" data-target="hero"      title="Home"></div>
+    <div class="nav-dot"        data-target="ucapan"    title="Ucapan"></div>
+    <div class="nav-dot"        data-target="pencapaian" title="Pencapaian"></div>
+    <div class="nav-dot"        data-target="timeline"  title="Perjalanan"></div>
+    <div class="nav-dot"        data-target="sahabat"   title="Sahabat"></div>
+    <div class="nav-dot"        data-target="galeri"    title="Galeri"></div>
+    <div class="nav-dot"        data-target="footer"    title="Penutup"></div>
+  </nav>
+
+  <!-- Firework Button -->
+  <button class="firework-btn" onclick="burstConfetti()" title="Rayakan!">🎊</button>
+
+  <div class="page">
+
+    <!-- ═══════════════ HERO ═══════════════ -->
+    <section id="hero">
+      <div class="hero-tag">✨ Momen Bersejarah · 2026 ✨</div>
+
+      <div class="avatar-wrap">
+        <div class="avatar-ring">
+          <div class="avatar-inner">🎓</div>
+        </div>
+      </div>
+
+      <div class="toga-bounce">🎓</div>
+
+      <h1 class="hero-title">
+        <span class="word1">Selamat</span>&nbsp;<span class="word2">Wisuda!</span>
+      </h1>
+
+      <div class="divider-gold"></div>
+
+      <div class="hero-name">Ivan Fadhillah Syakieb</div>
+
+      <div class="badge-row">
+        <span class="badge badge-gold">🏅 S.M.</span>
+        <span class="badge badge-gold">📜 CTT</span>
+        <span class="badge badge-glass">🎓 Sarjana Manajemen</span>
+      </div>
+
+      <div class="hero-univ">
+        <span>Universitas Negeri</span> Jakarta
+      </div>
+      <div class="hero-year">Program Sarjana (S1) · 2026</div>
+
+      <div class="hero-btns">
+        <button class="btn btn-primary" onclick="burstConfetti()">🎊 Rayakan!</button>
+        <button class="btn btn-outline" onclick="document.getElementById('ucapan').scrollIntoView({behavior:'smooth'})">📖 Baca Ucapan</button>
+      </div>
+
+      <div class="scroll-hint">
+        <span class="scroll-arrow">↓</span>
+        <span>Scroll</span>
+      </div>
+    </section>
+
+    <!-- ═══════════════ UCAPAN UTAMA ═══════════════ -->
+    <section id="ucapan">
+      <div class="section-inner">
+        <div class="section-tag">💌 Ucapan Selamat</div>
+        <h2 class="section-title">Selamat atas <span>Pencapaian Luar Biasa</span></h2>
+        <p class="section-sub">Setiap perjuangan yang kamu jalani kini terbayar dengan sempurna.</p>
+
+        <div class="ucapan-card">
+          <div class="quote-mark">"</div>
+          <p class="ucapan-text">
+            Selamat, <strong>Ivan Fadhillah Syakieb, S.M., CTT!</strong><br/><br/>
+            Hari ini adalah bukti nyata bahwa ketekunan, semangat pantang menyerah, dan kerja keras
+            yang kamu investasikan selama bertahun-tahun di <strong>Universitas Negeri Jakarta</strong>
+            akhirnya berbuah manis. Gelar <strong>Sarjana Manajemen (S.M.)</strong> yang kamu raih
+            bukan sekadar dua huruf di belakang namamu — melainkan simbol dari setiap malam begadang,
+            setiap tugas yang diselesaikan, dan setiap ujian yang kamu hadapi dengan kepala tegak.<br/><br/>
+            Sertifikasi <strong>CTT (Certified Technical Trainer)</strong> yang juga menyertai perjalananmu
+            adalah nilai tambah yang menunjukkan bahwa kamu tidak hanya belajar untuk diri sendiri,
+            tetapi juga untuk berbagi ilmu kepada sesama.<br/><br/>
+            Dunia di luar sana menunggumu. Jadilah <strong>pemimpin yang memberi dampak</strong>, profesional
+            yang berintegritas, dan manusia yang terus bertumbuh. 🌟
+          </p>
+          <div class="divider-thin"></div>
+          <blockquote class="inspirasi">
+            "Pendidikan adalah senjata paling ampuh yang dapat kamu gunakan untuk mengubah dunia."
+            <small>— Nelson Mandela</small>
+          </blockquote>
+          <div style="margin-top:20px">
+            <blockquote class="inspirasi">
+              "Sukses bukan kunci kebahagiaan. Kebahagiaanlah kunci sukses. Jika kamu mencintai apa yang kamu lakukan, kamu akan sukses."
+              <small>— Albert Schweitzer</small>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ PENCAPAIAN ═══════════════ -->
+    <section id="pencapaian">
+      <div class="section-inner">
+        <div class="section-tag">🏆 Pencapaian</div>
+        <h2 class="section-title"><span>Jejak</span> Prestasi</h2>
+        <p class="section-sub">Setiap angka di bawah ini adalah cerita perjuangan yang luar biasa.</p>
+
+        <div class="achieve-grid">
+          <div class="achieve-card">
+            <div class="achieve-icon">🎓</div>
+            <div class="achieve-label">Gelar</div>
+            <div class="achieve-value">S.M.</div>
+            <div class="achieve-desc">Sarjana Manajemen<br/>Universitas Negeri Jakarta</div>
+          </div>
+          <div class="achieve-card">
+            <div class="achieve-icon">📜</div>
+            <div class="achieve-label">Sertifikasi</div>
+            <div class="achieve-value">CTT</div>
+            <div class="achieve-desc">Certified Technical Trainer<br/>Pengakuan Internasional</div>
+          </div>
+          <div class="achieve-card">
+            <div class="achieve-icon">📚</div>
+            <div class="achieve-label">Program</div>
+            <div class="achieve-value">S1</div>
+            <div class="achieve-desc">Program Sarjana<br/>Strata Satu</div>
+          </div>
+          <div class="achieve-card">
+            <div class="achieve-icon">🏛️</div>
+            <div class="achieve-label">Universitas</div>
+            <div class="achieve-value">UNJ</div>
+            <div class="achieve-desc">Universitas Negeri Jakarta<br/>Ibu Kota Indonesia</div>
+          </div>
+          <div class="achieve-card">
+            <div class="achieve-icon">🗓️</div>
+            <div class="achieve-label">Tahun Wisuda</div>
+            <div class="achieve-value">2026</div>
+            <div class="achieve-desc">Hari Bersejarah<br/>yang Selalu Dikenang</div>
+          </div>
+          <div class="achieve-card">
+            <div class="achieve-icon">⭐</div>
+            <div class="achieve-label">Masa Depan</div>
+            <div class="achieve-value">∞</div>
+            <div class="achieve-desc">Potensi Tanpa Batas<br/>Menanti di Depan</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ TIMELINE ═══════════════ -->
+    <section id="timeline">
+      <div class="section-inner">
+        <div class="section-tag">🗺️ Perjalanan</div>
+        <h2 class="section-title">Jejak <span>Perjalanan Akademik</span></h2>
+        <p class="section-sub">Dari langkah pertama hingga momen bersejarah hari ini.</p>
+
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-year">AWAL PERJALANAN</div>
+            <div class="tl-title">🚀 Masuk Universitas Negeri Jakarta</div>
+            <div class="tl-desc">Memulai perjalanan akademik di Program Studi Manajemen, UNJ. Langkah pertama menuju impian dengan penuh semangat dan tekad.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-year">PERJALANAN S1</div>
+            <div class="tl-title">📖 Menyelami Dunia Manajemen</div>
+            <div class="tl-desc">Belajar keras, menghadapi setiap tantangan akademik, membangun relasi, dan mengembangkan diri di lingkungan kampus yang dinamis.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-year">SERTIFIKASI</div>
+            <div class="tl-title">📜 Meraih Certified Technical Trainer (CTT)</div>
+            <div class="tl-desc">Tidak berhenti di gelar sarjana — Ivan membuktikan diri dengan meraih sertifikasi CTT, sebuah pengakuan atas kemampuan teknis dan kemampuan mengajar bertaraf tinggi.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-year">PUNCAK · 2026</div>
+            <div class="tl-title">🎓 Wisuda — Sarjana Manajemen (S.M.)</div>
+            <div class="tl-desc">Hari yang dinantikan tiba! Ivan Fadhillah Syakieb resmi menyandang gelar S.M. dan siap melangkah ke babak baru kehidupan yang lebih menantang.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-year">MASA DEPAN ✨</div>
+            <div class="tl-title">🌟 Babak Baru yang Menakjubkan</div>
+            <div class="tl-desc">Dengan ilmu, gelar, dan sertifikasi yang dimiliki, Ivan siap memberikan dampak nyata bagi masyarakat, organisasi, dan dunia profesional.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ UCAPAN SAHABAT ═══════════════ -->
+    <section id="sahabat">
+      <div class="section-inner">
+        <div class="section-tag">💬 Ucapan Sahabat &amp; Keluarga</div>
+        <h2 class="section-title">Kata <span>Mereka</span> Untukmu</h2>
+        <p class="section-sub">Doa dan harapan dari orang-orang yang menyayangimu.</p>
+
+        <div class="cards-grid">
+          <div class="friend-card">
+            <div class="friend-avatar">👨‍👩‍👦</div>
+            <div class="friend-name">Keluarga Tercinta</div>
+            <div class="friend-role">Orang Tua &amp; Keluarga</div>
+            <div class="friend-msg">"Nak, air mata haru ini adalah bukti betapa bangganya kami. Kamu telah membuktikan bahwa doa dan kerja kerasmu tidak sia-sia. Kami selalu ada di belakangmu. Selamat, anakku! ❤️"</div>
+          </div>
+          <div class="friend-card">
+            <div class="friend-avatar">👫</div>
+            <div class="friend-name">Sahabat Kampus</div>
+            <div class="friend-role">Teman Seperjuangan</div>
+            <div class="friend-msg">"Van, masih ingat begadang bareng ngerjain tugas sampai subuh? Semua itu terbayar lunas hari ini! Selamat, kamu layak dapat ini semua. Sukses terus! 🎉"</div>
+          </div>
+          <div class="friend-card">
+            <div class="friend-avatar">👨‍🏫</div>
+            <div class="friend-name">Dosen Pembimbing</div>
+            <div class="friend-role">Akademisi UNJ</div>
+            <div class="friend-msg">"Ivan adalah mahasiswa yang berdedikasi tinggi. Gelar S.M. dan sertifikasi CTT yang ia raih adalah cerminan dari karakter dan komitmennya. Saya sangat bangga. ✨"</div>
+          </div>
+          <div class="friend-card">
+            <div class="friend-avatar">🤝</div>
+            <div class="friend-name">Rekan Organisasi</div>
+            <div class="friend-role">Aktivis Kampus</div>
+            <div class="friend-msg">"Kamu bukan hanya cerdas di kelas, tapi juga luar biasa di luar kelas. Kepemimpinanmu menginspirasi banyak orang. Terus berkarya dan berdampak! 💪"</div>
+          </div>
+          <div class="friend-card">
+            <div class="friend-avatar">💻</div>
+            <div class="friend-name">Komunitas CTT</div>
+            <div class="friend-role">Certified Technical Trainer</div>
+            <div class="friend-msg">"Selamat bergabung di komunitas para trainer profesional! Sertifikasi CTT-mu membuktikan kamu siap berbagi ilmu dan menginspirasi generasi berikutnya. Semangat! 🌟"</div>
+          </div>
+          <div class="friend-card">
+            <div class="friend-avatar">🌸</div>
+            <div class="friend-name">Sahabat Terdekat</div>
+            <div class="friend-role">Best Friend Forever</div>
+            <div class="friend-msg">"Dari dulu aku tahu kamu akan berhasil. Kamu sudah berusaha sangat keras. Sekarang giliran dunia melihat betapa luar biasanya kamu. Selamat wisuda, Van! 🥹💛"</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ GALERI ═══════════════ -->
+    <section id="galeri">
+      <div class="section-inner">
+        <div class="section-tag">📸 Momen Spesial</div>
+        <h2 class="section-title">Galeri <span>Kenangan</span></h2>
+        <p class="section-sub">Momen-momen berharga dalam perjalanan akademik Ivan.</p>
+
+        <div class="gallery-grid">
+          <div class="gallery-item featured">
+            <span style="font-size:64px">🎓</span>
+            <span>Hari Wisuda 2026</span>
+          </div>
+          <div class="gallery-item">
+            <span style="font-size:44px">📚</span>
+            <span>Belajar Keras</span>
+          </div>
+          <div class="gallery-item">
+            <span style="font-size:44px">🏛️</span>
+            <span>Kampus UNJ</span>
+          </div>
+          <div class="gallery-item">
+            <span style="font-size:44px">📜</span>
+            <span>Sertifikasi CTT</span>
+          </div>
+          <div class="gallery-item">
+            <span style="font-size:44px">🤝</span>
+            <span>Organisasi</span>
+          </div>
+          <div class="gallery-item">
+            <span style="font-size:44px">🌟</span>
+            <span>Prestasi</span>
+          </div>
+          <div class="gallery-item">
+            <span style="font-size:44px">👨‍👩‍👦</span>
+            <span>Bersama Keluarga</span>
+          </div>
+        </div>
+        <p style="text-align:center;color:rgba(255,255,255,.3);font-size:12px;margin-top:16px;letter-spacing:2px;">
+          TAMBAHKAN FOTO ASLIMU DI SINI 📸
+        </p>
+      </div>
+    </section>
+
+    <!-- ═══════════════ FOOTER ═══════════════ -->
+    <footer id="footer">
+      <div class="footer-toga">🎓</div>
+      <div class="footer-name">Ivan Fadhillah Syakieb</div>
+      <div class="footer-degree">S.M., CTT · Sarjana Manajemen · Universitas Negeri Jakarta</div>
+
+      <div class="emoji-row">🎊 🎉 🏅 ⭐ 🎊 🎉</div>
+
+      <button class="btn btn-primary" onclick="burstConfetti()" style="margin-bottom:32px">
+        🎊 Rayakan Sekali Lagi!
+      </button>
+
+      <div class="footer-divider"></div>
+      <div class="footer-copy">Universitas Negeri Jakarta · Wisuda 2026 · Selamat &amp; Bahagia</div>
+    </footer>
+
+  </div><!-- .page -->
+
+  <script>
+  // ══════════════════════════════════════════════════════
+  //  LOADING SCREEN
+  // ══════════════════════════════════════════════════════
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('loading').classList.add('hidden');
+      setTimeout(() => {
+        burstConfetti();
+        setTimeout(burstConfetti, 700);
+        setTimeout(burstConfetti, 1500);
+      }, 400);
+    }, 2200);
+  });
+
+  // ══════════════════════════════════════════════════════
+  //  STARFIELD
+  // ══════════════════════════════════════════════════════
+  const starsEl = document.getElementById('stars');
+  for (let i = 0; i < 160; i++) {
+    const s = document.createElement('div');
+    s.className = 'star';
+    const sz = Math.random() * 2.5 + 0.4;
+    s.style.cssText = `width:${sz}px;height:${sz}px;top:${Math.random()*100}%;left:${Math.random()*100}%;animation-duration:${Math.random()*3+1.5}s;animation-delay:${Math.random()*5}s;`;
+    starsEl.appendChild(s);
+  }
+
+  // ══════════════════════════════════════════════════════
+  //  FLOATING TOGAS
+  // ══════════════════════════════════════════════════════
+  const floatContainer = document.getElementById('floatTogas');
+  const togaEmojis = ['🎓','🎊','🎉','⭐','✨','🏅','🌟'];
+  for (let i = 0; i < 12; i++) {
+    const el = document.createElement('div');
+    el.className = 'float-toga';
+    el.textContent = togaEmojis[Math.floor(Math.random() * togaEmojis.length)];
+    el.style.cssText = `left:${Math.random()*100}%;animation-duration:${Math.random()*10+8}s;animation-delay:${Math.random()*12}s;font-size:${Math.random()*20+18}px;`;
+    floatContainer.appendChild(el);
+  }
+
+  // ══════════════════════════════════════════════════════
+  //  CONFETTI ENGINE
+  // ══════════════════════════════════════════════════════
+  const canvas = document.getElementById('confettiCanvas');
+  const ctx    = canvas.getContext('2d');
+  let particles = [];
+
+  function resizeCanvas() {
+    canvas.width  = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+
+  const COLORS = [
+    '#FFD700','#FFA500','#FF6B6B','#4ECDC4','#45B7D1',
+    '#96CEB4','#FFEAA7','#DDA0DD','#98FB98','#F0E68C',
+    '#87CEEB','#FF69B4','#FFF','#FFE4B5','#B0E0E6'
+  ];
+  const EMOJIS = ['🎓','🎊','🎉','⭐','🌟','✨','🏅','💛','🥳'];
+  const SHAPES = ['rect','circle','triangle','star','ribbon'];
+
+  class Particle {
+    constructor(burst = false, cx, cy) {
+      this.reset(burst, cx, cy);
+    }
+    reset(burst = false, cx = canvas.width/2, cy = canvas.height/2) {
+      this.isEmoji = Math.random() < 0.22;
+      this.emoji   = EMOJIS[Math.floor(Math.random() * EMOJIS.length)];
+      this.shape   = SHAPES[Math.floor(Math.random() * SHAPES.length)];
+      this.color   = COLORS[Math.floor(Math.random() * COLORS.length)];
+      this.size    = Math.random() * 11 + 5;
+      this.angle   = Math.random() * 360;
+      this.spin    = (Math.random() - 0.5) * 10;
+      this.alpha   = 1;
+      this.wobT    = 0;
+      this.wobSpd  = Math.random() * 0.04 + 0.015;
+      this.wobAmp  = Math.random() * 3.5;
+
+      if (burst) {
+        this.x  = cx + (Math.random() - 0.5) * 120;
+        this.y  = cy + (Math.random() - 0.5) * 80;
+        this.vx = (Math.random() - 0.5) * 18;
+        this.vy = -(Math.random() * 18 + 5);
+      } else {
+        this.x  = Math.random() * canvas.width;
+        this.y  = -20;
+        this.vx = (Math.random() - 0.5) * 2.5;
+        this.vy = Math.random() * 2.5 + 1.2;
+      }
+    }
+    update() {
+      this.wobT += this.wobSpd;
+      this.x    += this.vx + Math.sin(this.wobT) * this.wobAmp;
+      this.y    += this.vy;
+      this.vy   += 0.07;
+      this.vx   *= 0.997;
+      this.angle += this.spin;
+      if (this.y > canvas.height + 30) this.alpha -= 0.06;
+      if (this.alpha <= 0 || this.y > canvas.height + 80
+          || this.x < -60 || this.x > canvas.width + 60) {
+        this.reset();
+      }
+    }
+    draw() {
+      ctx.save();
+      ctx.globalAlpha = Math.max(0, this.alpha);
+      ctx.translate(this.x, this.y);
+      ctx.rotate(this.angle * Math.PI / 180);
+      if (this.isEmoji) {
+        ctx.font = `${this.size * 2.2}px serif`;
+        ctx.textAlign    = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(this.emoji, 0, 0);
+      } else {
+        ctx.fillStyle  = this.color;
+        ctx.shadowColor = this.color;
+        ctx.shadowBlur  = 5;
+        if (this.shape === 'rect') {
+          ctx.fillRect(-this.size/2, -this.size/4, this.size, this.size/2);
+        } else if (this.shape === 'circle') {
+          ctx.beginPath(); ctx.arc(0,0,this.size/2,0,Math.PI*2); ctx.fill();
+        } else if (this.shape === 'triangle') {
+          ctx.beginPath();
+          ctx.moveTo(0,-this.size/2);
+          ctx.lineTo(this.size/2,this.size/2);
+          ctx.lineTo(-this.size/2,this.size/2);
+          ctx.closePath(); ctx.fill();
+        } else if (this.shape === 'star') {
+          drawStar(ctx,0,0,5,this.size/2,this.size/4); ctx.fill();
+        } else { // ribbon
+          ctx.beginPath();
+          ctx.ellipse(0,0,this.size/2,this.size/5,0,0,Math.PI*2);
+          ctx.fill();
+        }
+      }
+      ctx.restore();
+    }
+  }
+
+  function drawStar(ctx,cx,cy,spikes,oR,iR) {
+    let rot = Math.PI/2*3, step = Math.PI/spikes;
+    ctx.beginPath(); ctx.moveTo(cx,cy-oR);
+    for(let i=0;i<spikes;i++){
+      ctx.lineTo(cx+Math.cos(rot)*oR,cy+Math.sin(rot)*oR); rot+=step;
+      ctx.lineTo(cx+Math.cos(rot)*iR,cy+Math.sin(rot)*iR); rot+=step;
+    }
+    ctx.lineTo(cx,cy-oR); ctx.closePath();
+  }
+
+  function burstConfetti(cx, cy) {
+    const bx = cx ?? canvas.width/2;
+    const by = cy ?? canvas.height/3;
+    for(let i=0;i<100;i++) particles.push(new Particle(true, bx, by));
+  }
+
+  // init steady rain
+  for(let i=0;i<130;i++){
+    const p = new Particle();
+    p.y = Math.random() * canvas.height;
+    particles.push(p);
+  }
+
+  // click anywhere = burst there
+  document.addEventListener('click', e => {
+    if(e.target.classList.contains('firework-btn') ||
+       e.target.classList.contains('btn')) return;
+    burstConfetti(e.clientX, e.clientY);
+  });
+
+  (function loop() {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    particles.forEach(p => { p.update(); p.draw(); });
+    while(particles.filter(p=>p.vy>0&&p.y<canvas.height).length < 130)
+      particles.push(new Particle());
+    requestAnimationFrame(loop);
+  })();
+
+  // ══════════════════════════════════════════════════════
+  //  NAV DOTS
+  // ══════════════════════════════════════════════════════
+  const sections  = ['hero','ucapan','pencapaian','timeline','sahabat','galeri','footer'];
+  const navDots   = document.querySelectorAll('.nav-dot');
+  navDots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      document.getElementById(dot.dataset.target)
+              .scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        const idx = sections.indexOf(entry.target.id);
+        navDots.forEach((d,i) => d.classList.toggle('active', i===idx));
+      }
+    });
+  }, { threshold: 0.45 });
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if(el) observer.observe(el);
+  });
+
+  // ══════════════════════════════════════════════════════
+  //  SCROLL REVEAL (timeline & friend cards)
+  // ══════════════════════════════════════════════════════
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach((entry, i) => {
+      if(entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 100);
+        revealObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.tl-item, .friend-card').forEach(el => revealObs.observe(el));
+  </script>
+</body>
+</html>
